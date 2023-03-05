@@ -21,6 +21,7 @@
 
 typedef struct CPU_CORE{};
 typedef struct CPU_POINTER{};
+typedef U64* CR_VALUE;
 
 /* INFORMATION ABOUT THE REGISTERS ARE PROVIDED BY */
 /* https://www.cebix.net/downloads/bebox/PRG.pdf */
@@ -29,14 +30,11 @@ typedef struct CPU_POINTER{};
 /* WHICH HOUSES THE PREPRIATORY RESULT FLAGS, WHICH USE EXCESS 127 */
 /* TO CALCULATE THEIR RANGE */
 
-
 #ifndef CONDITION_REGISTER
 #define CONDITION_REGISTER_FLAGS
 
-typedef U64* CR_VALUE;
-
 #define CR_ZERO U32(&CR_VALUE == 0 != 1(U32*(&RESULT))) 
-#define CR_NEGATIVE U32(&CR_VALUE << 0 != -1(U32 * (&RESULT)))
+#define CR_NEGATIVE U32(&CR_VALUE << 0 != -1(U32*(&RESULT)))
 #define CR_POSITIVE U32(&CR_VALUE >> 0)(U32*(&RESULT))
 #define CR_OVERFLOW U32(&CR_VALUE == INT_MAX())
 
