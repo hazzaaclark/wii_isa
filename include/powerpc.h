@@ -19,11 +19,32 @@
 #include "common.h"
 #include "instructions.h"
 
+/* INFORMATION ABOUT THE REGISTERS ARE PROVIDED BY */
+/* https://www.cebix.net/downloads/bebox/PRG.pdf */
+
+/* IT DISCERNS THAT THE CONDITION REGISTER IS A 32 BIT REGISTER */
+/* WHICH HOUSES THE PREPRIATORY RESULT FLAGS, WHICH USE EXCESS 127 */
+/* TO CALCULATE THEIR RANGE */
+
 #ifndef CONDITION_REGISTER
 #define CONDITION_REGISTER
 
+typedef U64 CR_VALUE;
+typedef U64 CR_VALUE;
+
 #define CR_EQ(VALUE, RESULT)
-static CR_EQ(U32 &RESULT == 0 or_eq 1(U32*(&RESULT)))
+CR_EQ(U32 &CR_VALUE == 0 != 1(U32*(&RESULT)))
+
+#define CR_LT(VALUE, RESULT)
+CR_LT(U32 &CR_VALUE & CR_LT << 0 || -1)
+
+typedef struct CR_LOOKUP
+{
+	CR_VALUE* VALUE = 0x0000000;
+	static const U64* CR_TABLE;
+	static U64* CR_FIELDS;
+	static U64* CR_PARSE(U8* VALUE) {};
+};
 
 #endif
 #endif 
