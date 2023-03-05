@@ -40,7 +40,11 @@
 
 typedef void(*UPDATE_CR0(void));
 typedef void(*SET_SEGMENT_REGISTER(void));
-typedef void(*SET_CARRY_FLAG(void));
+typedef void(*SET_CARRY_FLAG(U32* CARRY));
+typedef void(*SET_CONDITION_OPERATION(void));
+
+typedef U8* XER_CARRY;
+XER_CARRY CONDITION_CARRY = 0;
 
 #endif
 #endif
